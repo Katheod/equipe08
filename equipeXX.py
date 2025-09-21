@@ -54,3 +54,15 @@ plt.title("Matrice N")
 plt.show()
 print("N =\n", N)
 
+# Question numéro 1-f(x)
+def f(i) :
+
+    y = -(i**2)/2 + np.exp(i) + np.sin(i)
+    
+    return y
+
+
+x = np.linspace(0, 1, 101)
+plt.plot(x, f(x))
+plt.title("Figure 2. f(x) évaluée sur l'intervale [0, 1]")
+plt.show()
