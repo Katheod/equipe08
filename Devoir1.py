@@ -1,8 +1,10 @@
 import PointsFixes as pf
 import matplotlib.pyplot as plt
 
+
+# b
 mu = 3.44
-g_mu = lambda x: -(pow(mu, 3)*pow(x, 4)) + 2*pow(mu, 3)*pow(x, 3) - pow(mu, 2)*(mu + 1)*pow(x, 2) + pow(mu, 2)*x
+f = lambda x: -(pow(mu, 3)*pow(x, 4)) + 2*pow(mu, 3)*pow(x, 3) - pow(mu, 2)*(mu + 1)*pow(x, 2) + pow(mu, 2)*x
 
 r, e_n = pf.pointsFixes(f, 0.7, 1000, 1e-10)
 
