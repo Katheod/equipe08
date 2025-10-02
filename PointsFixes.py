@@ -21,9 +21,7 @@ def pointsFixes(f, x0, Nmax, eps):
     for i in range(Nmax):
         e_n.append(abs(x1 - x))
         if abs(x1 - x) < eps:
-            print(i)
-            print(e_n)
-            return x1
+            return x1, e_n
         x = x1
         x1 = f(x)
     raise ValueError("La méthode n'a pas convergé")
@@ -39,6 +37,23 @@ print(r3, r4)
 
 f = lambda x : -(pow(mu, 3)*pow(x, 4)) + 2*pow(mu, 3)*pow(x, 3) - pow(mu, 2)*(mu + 1)*pow(x, 2) + pow(mu, 2)*x
 
-print(pointsFixes(f, 0.7, 1000, 1e-10))
+r, e_n = pointsFixes(f, 0.7, 1000, 1e-10)
 
+plt.figure(1)
+plt.semilogy(range(len(e_n)), e_n)
+plt.xlabel("itérations (N)")
+plt.ylabel("||E_n||")
+plt.title("Figure 1")
+plt.grid()
+plt.show()
 
+e_n1= e_n[1:]
+e_n = e_n[:-1]
+
+plt.figure(2)
+plt.loglog(e_n, e_n1)
+plt.xlabel("||E_n||")
+plt.ylabel("||E_{n+1}||")
+plt.title("Figure 2")
+plt.grid()
+plt.show()
