@@ -1,12 +1,21 @@
-import PointsFixes as pf
+from PointsFixes import pointsFixes
 import matplotlib.pyplot as plt
+from math import sqrt, pow
 
 
 # b
 mu = 3.44
+r1 = 0
+r2 = (mu - 1) / mu
+r3 = ((mu+1) + sqrt((mu+1.0)*(mu-3.0))) / (2*mu)
+r4 = ((mu+1) - sqrt((mu+1.0)*(mu-3.0))) / (2*mu)
+print(r1, r2, r3, r4)
 f = lambda x: -(pow(mu, 3)*pow(x, 4)) + 2*pow(mu, 3)*pow(x, 3) - pow(mu, 2)*(mu + 1)*pow(x, 2) + pow(mu, 2)*x
+print(f(r1), f(r2), f(r3), f(r4))
 
-r, e_n = pf.pointsFixes(f, 0.7, 1000, 1e-10)
+r, e_n = pointsFixes(f, 0.8, 1000, 1e-10)
+print(r, len(e_n))
+
 
 plt.figure(1)
 plt.semilogy(range(len(e_n)), e_n)
