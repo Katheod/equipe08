@@ -12,6 +12,7 @@ def pointsFixes(f, x0, Nmax, eps):
     
     Returns:
         float: Le point fixe trouvé.
+        liste : Les erreurs à chaque itération.
     """
     e_n = []
     x = x0
@@ -23,11 +24,3 @@ def pointsFixes(f, x0, Nmax, eps):
         x = x1
         x1 = f(x)
     raise ValueError("La méthode n'a pas convergé")
-
-"""
-mu = 3.44
-r1 = 0
-r2 = (mu - 1) / mu
-r3 = ((mu-1) + math.sqrt((mu+1.0)*(mu-3.0))) / (2*mu)
-r4 = ((mu-1) - math.sqrt((mu+1.0)*(mu-3.0))) / (2*mu)
-"""
