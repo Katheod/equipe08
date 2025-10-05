@@ -16,7 +16,7 @@ r3 = ((mu+1) + sqrt((mu+1.0)*(mu-3.0))) / (2*mu)
 f = lambda x: -(pow(mu, 3)*pow(x, 4)) + 2*pow(mu, 3)*pow(x, 3) - pow(mu, 2)*(mu + 1)*pow(x, 2) + pow(mu, 2)*x
 
 # Récupérer le point fixes et la liste d'erreurs.
-r, e_n = pointsFixes(f, 0.8, 1000, 1e-10)
+r, e_n = pointsFixes(f, 0.8, 500, 1e-10)
 
 #Créer la figure 1.
 plt.figure(1)
@@ -55,7 +55,7 @@ r4 = ((mu+1) - sqrt((mu+1.0)*(mu-3.0))) / (2*mu)
 f = lambda x: -(pow(mu, 3)*pow(x, 4)) + 2*pow(mu, 3)*pow(x, 3) - pow(mu, 2)*(mu + 1)*pow(x, 2) + pow(mu, 2)*x
 
 # Récupérer le point fixes et la liste d'erreurs.
-r, e_n = pointsFixes(f, 0.5, 1000, 1e-10)
+r, e_n = pointsFixes(f, 0.5, 500, 1e-10)
 
 #Créer la figure 1.
 plt.figure(3)
@@ -85,3 +85,4 @@ plt.show()
 log_errors_n = log(e_n)
 log_errors_n1 = log(e_n1)
 p, _ = polyfit(log_errors_n, log_errors_n1, 1)
+print(p)
